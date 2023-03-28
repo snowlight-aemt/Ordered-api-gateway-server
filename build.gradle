@@ -37,12 +37,6 @@ dependencyManagement {
     }
 }
 
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-    }
-}
-
 tasks.named('test') {
     useJUnitPlatform()
 }

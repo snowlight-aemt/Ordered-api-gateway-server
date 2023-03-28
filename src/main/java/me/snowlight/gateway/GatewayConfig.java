@@ -13,10 +13,10 @@ public class GatewayConfig {
         return routeLocatorBuilder.routes()
                 .route(r -> r.path("/order-service/**")
                         .filters(u -> u.rewritePath("order-service/(?<segment>.*)", "/$\\{segment}"))
-                        .uri("http://localhost:8080"))
+                        .uri("lb://ORDER-SERVICE"))
                 .route(r -> r.path("/gift-service/**")
                         .filters(u -> u.rewritePath("gift-service/(?<segment>.*)", "/$\\{segment}"))
-                        .uri("http://localhost:18080"))
+                        .uri("lb://GIFT-SERVICE"))
                 .build();
     }
 }
